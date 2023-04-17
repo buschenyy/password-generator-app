@@ -1,36 +1,26 @@
 import './App.css'
+import Checkbox from './components/Checkbox'
+import LengthRange from './components/LengthRange'
+import Output from './components/Output'
+import StrengthRate from './components/StrengthRate'
 
 function App() {
   return (
     <div className="App">
       <h3>Password Generator</h3>
-      <div>
-        <input readOnly value="password" />
-        <span>copy</span>
-      </div>
-      <input type="range" min="1" max="20" value="10" />
+      <Output />
       <br />
-      <label>
-        <input type="checkbox" />
-        Include Uppercase Letters
-      </label>
+      <LengthRange />
       <br />
-      <label>
-        <input type="checkbox" />
-        Include Lowercase Letters
-      </label>
+      <Checkbox />
       <br />
-      <label>
-        <input type="checkbox" />
-        Include Numbers
-      </label>
+      <Checkbox />
       <br />
-      <label>
-        <input type="checkbox" />
-        Include Symbols
-      </label>
+      <Checkbox />
       <br />
-      <div>Strength</div>
+      <Checkbox />
+      <br />
+      <StrengthRate />
       <button>GENERATE</button>
     </div>
   )
