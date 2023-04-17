@@ -23,7 +23,7 @@ const PSWRD_STRENGTH = {
 }
 
 // A function that assesses the strength of a given password
-export function assessPswrdStrength(pswrd) {
+export default function assessPswrdStrength(pswrd) {
   // An array containing the results of each regex test and the password length
   const regexTestResults = Object.values(REGEX_CHAR_TESTS).map((regex) =>
     regex.test(pswrd)

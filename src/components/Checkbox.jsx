@@ -1,7 +1,7 @@
-const Checkbox = () => {
+const Checkbox = ({...props}) => {
   return (
     <label>
-      <input type="checkbox" />
+      <input type="checkbox" {...props}/>
       Include Symbols
     </label>
   )

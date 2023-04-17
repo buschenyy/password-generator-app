@@ -6,7 +6,7 @@ const PSWRD_LENGTH = Array(20).fill(0)
 const PSWRD_OPTIONS = ['uppercase', 'lowercase', 'numbers', 'symbols']
 const activePswrdOptions = ['uppercase', 'lowercase', 'numbers', 'symbols']
 
-export function generatePswrd(){
+export default function generatePswrd(){
     const password = PSWRD_LENGTH.map(
       (_, i) => (PSWRD_LENGTH[i] = randSymbol())
     ).join('')
