@@ -28,14 +28,23 @@ function App() {
 
     setFormState(actualFormState)
   }
-  console.log(formState)
+
+  const submitHandler = (event) => {
+    event.preventDefault()
+    setPassword(generatePswrd())
+  }
+
   return (
     <div className="App">
       <h3>Password Generator</h3>
       <Output value={password} />
       <br />
-      <form>
-        <LengthRange name='range' onChange={inputHandler} value={formState['range']} />
+      <form onSubmit={submitHandler}>
+        <LengthRange
+          name="range"
+          onChange={inputHandler}
+          value={formState['range']}
+        />
         <br />
         <Checkbox
           name="uppercase"
