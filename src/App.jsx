@@ -31,7 +31,9 @@ function App() {
 
   const submitHandler = (event) => {
     event.preventDefault()
-    setPassword(generatePswrd())
+    const { range, ...options } = formState
+    const arrOptions = Object.keys(options).filter((key) => formState[key])
+    setPassword(generatePswrd(range, arrOptions))
   }
 
   return (
