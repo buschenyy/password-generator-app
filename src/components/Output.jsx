@@ -1,7 +1,7 @@
-const Output = ({value}) => {
+const Output = ({ value }) => {
   return (
     <div>
-      <input readOnly value={value}/>
+      <input readOnly value={value} />
       <button></button>
     </div>
   )

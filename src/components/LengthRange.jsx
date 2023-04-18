@@ -1,4 +1,4 @@
-const LengthRange = ({value, ...props}) => {
+const LengthRange = ({ value, ...props }) => {
   return (
     <div>
       <h4>Character Length</h4>
