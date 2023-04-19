@@ -2,7 +2,7 @@ const Output = ({ value }) => {
   return (
     <div>
       <input readOnly value={value} />
-      <button></button>
+      <button onClick={() => navigator.clipboard.writeText(value)}>copy</button>
     </div>
   )
 }
