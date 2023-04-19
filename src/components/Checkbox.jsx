@@ -1,8 +1,10 @@
+import './Checkbox.css'
+
 const Checkbox = ({ label, ...props }) => {
   const isLetterParameter = ['lowercase', 'uppercase'].includes(label)
   return (
     <label style={{ textTransform: 'capitalize' }}>
-      <input type="checkbox" {...props} />
+      <input className="checkbox" type="checkbox" {...props} />
       {`Include ${label} ${isLetterParameter ? 'letters' : ''}`}
     </label>
   )

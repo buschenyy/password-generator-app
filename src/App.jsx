@@ -45,31 +45,32 @@ function App() {
 
   return (
     <div className="App">
-      <h3>Password Generator</h3>
+      <h1 className="title">Password Generator</h1>
       <Output value={password} />
-      <br />
-      <form onSubmit={submitHandler}>
+      <form className="panel" onSubmit={submitHandler}>
         <LengthRange
           name="range"
           onChange={inputHandler}
           value={formState['range']}
         />
-        <br />
-        {Object.keys(formState).map(
-          (key) =>
-            key !== 'range' && (
-              <Checkbox
-                key={key}
-                name={key}
-                onChange={inputHandler}
-                checked={formState[key]}
-                label={key}
-              />
-            )
-        )}
-        <br />
+        <div className="checkBoxes">
+          {Object.keys(formState).map(
+            (key) =>
+              key !== 'range' && (
+                <Checkbox
+                  key={key}
+                  name={key}
+                  onChange={inputHandler}
+                  checked={formState[key]}
+                  label={key}
+                />
+              )
+          )}
+        </div>
         <StrengthRate strength={passwordStrength} />
-        <button type="submit">GENERATE</button>
+        <button className="submit" type="submit">
+          GENERATE
+        </button>
       </form>
     </div>
   )

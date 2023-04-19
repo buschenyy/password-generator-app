@@ -1,0 +1,22 @@
+.lengthTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleRange {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.lengthCount {
+  font-size: 32px;
+  line-height: 42px;
+  color: var(--color-green);
+}
+
+.lengthRange {
+  width: 100%;
+  height: 30px;
+  margin-top: 16px;
+}
