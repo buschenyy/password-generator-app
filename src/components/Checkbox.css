@@ -1,4 +1,5 @@
 .checkbox {
+  accent-color: var(--color-green);
   margin-right: 24px;
   cursor: pointer;
   width: 20px;

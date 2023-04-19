@@ -28,7 +28,13 @@
   cursor: pointer;
 }
 
-.copy:hover svg path {
+.copy svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--color-green);
+}
+
+.copy:hover svg {
   fill: var(--color-light);
   transition: fill 0.3s ease;
 }

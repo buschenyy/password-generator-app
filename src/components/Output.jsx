@@ -1,4 +1,5 @@
 import './Output.css'
+import { RiFileCopyLine } from 'react-icons/ri'
 
 const Output = ({ value }) => {
   return (
@@ -13,7 +14,7 @@ const Output = ({ value }) => {
         className="copy"
         onClick={() => navigator.clipboard.writeText(value)}
       >
-        copy
+        <RiFileCopyLine />
       </button>
     </div>
   )
