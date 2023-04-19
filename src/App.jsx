@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
 import Checkbox from './components/Checkbox'
@@ -18,6 +19,11 @@ const intialFormState = {
 function App() {
   const [password, setPassword] = useState('')
   const [formState, setFormState] = useState(intialFormState)
+  const [passwordStrength, setPasswordStrength] = useState('')
+
+  useEffect(() => {
+    setPasswordStrength(assessPswrdStrength(password))
+  }, [password])
 
   const inputHandler = (e) => {
     const { name, value, checked, type } = e.target
@@ -61,7 +67,7 @@ function App() {
             )
         )}
         <br />
-        <StrengthRate />
+        <StrengthRate strength={passwordStrength} />
         <button type="submit">GENERATE</button>
       </form>
     </div>

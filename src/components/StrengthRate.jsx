@@ -1,5 +1,5 @@
-const StrengthRate = () => {
-  return <div>Strength ||||</div>
+const StrengthRate = ({ strength }) => {
+  return <div>Strength {strength}</div>
 }
 
 export default StrengthRate
