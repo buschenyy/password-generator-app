@@ -48,29 +48,18 @@ function App() {
           value={formState['range']}
         />
         <br />
-        <Checkbox
-          name="uppercase"
-          onChange={inputHandler}
-          checked={formState['uppercase']}
-        />
-        <br />
-        <Checkbox
-          name="lowercase"
-          onChange={inputHandler}
-          checked={formState['lowercase']}
-        />
-        <br />
-        <Checkbox
-          name="numbers"
-          onChange={inputHandler}
-          checked={formState['numbers']}
-        />
-        <br />
-        <Checkbox
-          name="symbols"
-          onChange={inputHandler}
-          checked={formState['symbols']}
-        />
+        {Object.keys(formState).map(
+          (key) =>
+            key !== 'range' && (
+              <Checkbox
+                key={key}
+                name={key}
+                onChange={inputHandler}
+                checked={formState[key]}
+                label={key}
+              />
+            )
+        )}
         <br />
         <StrengthRate />
         <button type="submit">GENERATE</button>
