@@ -10,7 +10,6 @@ export default function generatePswrd(length, options = [...PSWRD_OPTIONS]) {
     pswrdLength.push(0)
   }
   const activePswrdOptions = [...options]
-  console.log(activePswrdOptions)
 
   const password = pswrdLength
     .map((_, i) => (pswrdLength[i] = randSymbol()))

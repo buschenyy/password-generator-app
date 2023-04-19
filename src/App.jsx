@@ -22,6 +22,7 @@ function App() {
   const [passwordStrength, setPasswordStrength] = useState('')
 
   useEffect(() => {
+    if (!password) return
     setPasswordStrength(assessPswrdStrength(password))
   }, [password])
 

@@ -9,7 +9,7 @@ const REGEX_CHAR_TESTS = {
 // An object containing password strength templates
 // STRENGTH:[lowercase, uppercase, numbers, symbols, min length]
 const PSWRD_STRENGTH = {
-  DIFF: [true, true, true, true, 16],
+  STRONG: [true, true, true, true, 16],
   MEDIUM: [
     [true, true, true, true, 12],
     [true, true, true, true, 8],
