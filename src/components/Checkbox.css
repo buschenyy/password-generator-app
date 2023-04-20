@@ -1,3 +1,8 @@
+.checkboxLabel {
+  display: flex;
+  text-transform: capitalize;
+}
+
 .checkbox {
   accent-color: var(--color-green);
   margin-right: 24px;
