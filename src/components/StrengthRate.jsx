@@ -1,19 +1,19 @@
 import './StrengthRate.css'
 
-const STRENGTH_VALUES = ['TOO WEAK', 'WEAK', 'MEDIUM', 'STRONG']
-const StrengthRate = ({ strength }) => {
+export const StrengthRate = ({ strength }) => {
+  const strengthAsClassName = strength.toLowerCase().replace(/ /g, '')
   return (
     <div className="strengthContainer">
       <span className="strengthTitle">Strength</span>
       <div className="strengthValue">
         <span>{strength}</span>
-        {strength &&
-          STRENGTH_VALUES.slice(0, STRENGTH_VALUES.indexOf(strength) + 1).fill(
-            '|'
-          )}
+        <div className={`strengthIndicators ${strengthAsClassName}`}>
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
       </div>
     </div>
   )
 }
-
-export default StrengthRate

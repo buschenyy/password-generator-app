@@ -14,6 +14,8 @@
 }
 
 .strengthValue {
+  display: flex;
+  align-items: center;
   font-size: 24px;
   line-height: 32px;
   color: var(--color-light);
@@ -22,4 +24,40 @@
 
 .strengthValue span {
   margin-right: 10px;
+}
+
+.strengthIndicators {
+  display: flex;
+}
+
+.strengthIndicators span {
+  display: inline-block;
+  margin-right: 6px;
+  width: 10px;
+  height: 28px;
+  border: 1px solid white;
+}
+
+.strengthIndicators span:last-child {
+  margin-right: 0;
+}
+
+.strengthIndicators.tooweak span:nth-child(1) {
+  background: var(--color-red);
+  border: 0;
+}
+
+.strengthIndicators.weak span:nth-child(-n + 2) {
+  background: var(--color-orange);
+  border: 0;
+}
+
+.strengthIndicators.medium span:nth-child(-n + 3) {
+  background: var(--color-yellow);
+  border: 0;
+}
+
+.strengthIndicators.strong span {
+  background: var(--color-green);
+  border: 0;
 }
