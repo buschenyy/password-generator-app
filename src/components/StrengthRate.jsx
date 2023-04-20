@@ -1,6 +1,6 @@
 import './StrengthRate.css'
 
-export const StrengthRate = ({ strength }) => {
+const StrengthRate = ({ strength }) => {
   const strengthAsClassName = strength.toLowerCase().replace(/ /g, '')
   return (
     <div className="strengthContainer">
@@ -17,3 +17,5 @@ export const StrengthRate = ({ strength }) => {
     </div>
   )
 }
+
+export default StrengthRate

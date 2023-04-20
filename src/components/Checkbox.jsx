@@ -1,6 +1,6 @@
 import './Checkbox.css'
 
-export const Checkbox = ({ label, ...props }) => {
+const Checkbox = ({ label, ...props }) => {
   const isLetterParameter = ['lowercase', 'uppercase'].includes(label)
   return (
     <label className="checkboxLabel">
@@ -9,3 +9,5 @@ export const Checkbox = ({ label, ...props }) => {
     </label>
   )
 }
+
+export default Checkbox

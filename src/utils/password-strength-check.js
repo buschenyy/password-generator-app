@@ -1,26 +1,49 @@
 // An object containing regular expressions for each character test
 const REGEX_CHAR_TESTS = {
-  lowerCase: /[a-z]/,
   upperCase: /[A-Z]/,
+  lowerCase: /[a-z]/,
   numbers: /\d/,
   symbols: /[\!\@\#\$\%\^\&\*]/,
 }
 
 // An object containing password strength templates
-// STRENGTH:[lowercase, uppercase, numbers, symbols, min length]
-const PSWRD_STRENGTH = {
-  STRONG: [true, true, true, true, 16],
-  MEDIUM: [
-    [true, true, true, true, 12],
-    [true, true, true, true, 8],
-  ],
-  WEAK: [
-    [true, false, false, false, 8],
-    [true, false, true, false, 8],
-    [true, false, true, true, 8],
-    [true, true, true, true, 8],
-  ],
-}
+// STRENGTH:[uppercase, lowercase, numbers, symbols, min length]
+const PSWRD_STRENGTH = [
+  {
+    name: 'STRONG',
+    patterns: [
+      [true, true, true, false, 18],
+      [true, true, false, true, 18],
+      [false, true, true, true, 18],
+      [true, false, true, true, 18],
+      [true, true, true, true, 14],
+    ],
+  },
+  {
+    name: 'MEDIUM',
+    patterns: [
+      [true, true, true, true, 8],
+      [true, true, true, false, 10],
+      [true, true, false, false, 12],
+      [true, false, false, true, 10],
+      [true, false, true, false, 10],
+      [true, true, false, true, 10],
+    ],
+  },
+  {
+    name: 'WEAK',
+    patterns: [
+      [true, false, false, false, 8],
+      [true, false, false, false, 6],
+      [true, false, false, true, 6],
+      [false, true, true, true, 6],
+      [true, false, true, true, 6],
+      [true, true, false, true, 6],
+      [true, true, true, false, 6],
+      [true, true, true, true, 6],
+    ],
+  },
+]
 
 // A function that assesses the strength of a given password
 export default function assessPswrdStrength(pswrd) {
@@ -34,22 +57,15 @@ export default function assessPswrdStrength(pswrd) {
 
   // A function that checks if the password matches a strength template
   function checkPswrdPattern() {
-    return Object.keys(PSWRD_STRENGTH).find((strengthClass) =>
-      comparePswrdWithPattern(strengthClass)
-    )
-  }
-
-  // A function that compares password features with a strength template
-  function comparePswrdWithPattern(strength) {
-    const hasNestedArr = PSWRD_STRENGTH[strength].some((e) => Array.isArray(e))
-    return pswrdFeatures.every((feature, i) => {
-      if (!hasNestedArr)
-        return checkEveryResult(feature, PSWRD_STRENGTH[strength], i)
-      if (hasNestedArr)
-        return PSWRD_STRENGTH[strength].some((arr) =>
-          checkEveryResult(feature, arr, i)
-        )
-    })
+    for (const patternGroup of PSWRD_STRENGTH) {
+      const pattern = patternGroup.patterns.find((arr) =>
+        pswrdFeatures.every((feature, i) => checkEveryResult(feature, arr, i))
+      )
+      if (pattern) {
+        return patternGroup.name
+      }
+    }
+    return null
   }
 
   // A function that checks if a feature matches the template
